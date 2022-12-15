@@ -11,7 +11,7 @@ function Scanner({ onScan }) {
   const onDetected = result => {
     Quagga.offDetected(onDetected);
 
-    const isbn = result.codeResult.code;
+    const isbn = result.codeResult.code
 
     // if isbn valido?
     // consultar a API de livros
