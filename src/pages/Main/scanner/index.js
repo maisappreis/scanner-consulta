@@ -5,68 +5,71 @@ import Quagga from 'quagga';
 import { Container, Video, ScanMarker } from './styles';
 import { validateIsbn } from '../../../services/books';
 
-function Scanner({ onScan }) {
+export default function Scanner({ onScan }) {
   let scannerAttempts = 0;
 
-  const onDetected = result => {
+  const onDetected = (result) => {
     Quagga.offDetected(onDetected);
 
-    const isbn = result.codeResult.code
-
-    // if isbn valido?
-    // consultar a API de livros
-    // else
-    // tentar mais uma vez (limite 5)
+    const isbn = result.codeResult.code;
 
     if (validateIsbn(isbn)) {
-      //alert(`ISBN válido: ${isbn}`);
+      console.log('onScan: ', isbn);
       onScan(isbn);
       return;
-    } else {
-      if (scannerAttempts >= 5) {
-        alert('Não é possível ler o código do livro.'
-        );
-      }
     }
-    scannerAttempts++;
+
+    if (scannerAttempts >= 5) {
+      alert(
+        'Não é possível ler o código do livro, por favor, tente novamente.'
+      );
+    }
+
+    scannerAttempts += 1;
     Quagga.onDetected(onDetected);
   };
 
   useEffect(() => {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      Quagga.init({
-        inputStream: {
-          name: 'Live',
-          type: 'LiveStream',
-          target: document.querySelector('#video'),
-          constraints: {
-            facinMode: 'environment'
+      Quagga.init(
+        {
+          inputStream: {
+            name: 'Live',
+            type: 'LiveStream',
+            target: document.querySelector('#video'),
+            constraints: {
+              facinMode: 'environment',
+            },
+          },
+          numOfWorkers: 1,
+          locate: true,
+          decoder: {
+            readers: ['ean_reader'],
           },
         },
-        numOfWorkers: 1,
-        locate: true,
-        decoder: {
-          readers: ['ean_reader']
-        },
-      },
-        err => {
+        (err) => {
           if (err) {
             console.error(err);
-            alert('Erro ao abrir a câmera do dispositivo, por favor dê permissão de uso.'
+            alert(
+              'Erro ao abrir a câmera do dispositivo, por favor dê permissão de uso.'
             );
             return;
           }
+
           Quagga.start();
         }
-      )
+      );
+
+      Quagga.onDetected(onDetected);
     }
   }, []);
+
   return (
     <>
       <Video id="video" />
       <Container>
         <ScanMarker>
-          <img 
+          <img
             src="../../../assets/images/scan-mark.png"
             alt="Marca para leitura do código"
             width="260"
@@ -75,12 +78,12 @@ function Scanner({ onScan }) {
           <p className="label">Aponte para o código de barras do livro</p>
         </ScanMarker>
         <img
-            className="logo" 
-            src="../../../assets/images/logo.png"
-            alt="Logo"
-            width="137"
-            height="69"
-          />
+          className="logo"
+          src="../../../assets/images/logo.png"
+          alt="Logo"
+          width="137"
+          height="69"
+        />
       </Container>
     </>
   );
@@ -89,7 +92,3 @@ function Scanner({ onScan }) {
 Scanner.PropTypes = {
   onScan: PropTypes.func,
 };
-
-export default Scanner;
-
-

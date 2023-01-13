@@ -1,20 +1,13 @@
 import React from 'react';
-
-import { Normalize } from 'styled-normalize';
-
+import { ApolloProvider } from '@apollo/react-hooks';
+import api from "./services/api"
 import Routes from './routes';
+import "./styles/global.css";
 
-import Theme from './styles/Theme';
-import GlobalStyle from './styles/global';
-
-function App() {
+export default function App() {
   return (
-    <Theme>
+    <ApolloProvider client={api}>
       <Routes />
-      <GlobalStyle />
-      <Normalize />
-    </Theme>
+    </ApolloProvider>
   );
 }
-
-export default App;
