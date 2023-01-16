@@ -1,0 +1,32 @@
+{
+    "isbn": "9788535212471",
+    "name": "Como dizer tudo em Inglês",
+    "coverImage": "https://devsamurai-materials.s3.amazonaws.com/samurai-books/clean-code.jpg",
+    "rating": 4,
+    "promotionalPrice": 39.9,
+    "price": 99.9,
+    "score": 4.9,
+    "scores": [
+        {
+            "name": "Tradução",
+            "value": 3.5
+        },
+        {
+            "name": "Códigos",
+            "value": 4
+        },
+        {
+            "name": "Comunidade",
+            "value": 5
+        }
+    ],
+    "tecnologies": [
+        "Java",
+        "TDD",
+        "Arquitetura"
+    ],
+    "requirements": [
+        "Java"
+    ],
+    "description": "Mesmo um código ruim pode funcionar. Mas se ele não for limpo, pode acabar com uma empresa de desenvolvimento. Perdem-se a cada ano horas incontáveis e recursos importantes devido a um código mal escrito. Mas não precisa ser assim."
+}

@@ -1,0 +1,16 @@
+FAZER TÚNEL HTTPS DE COMUNICAÇÃO PC E SMARTPHONE > para desenvolvimento
+
+MANEIRA 1: colocar endereço PI no navegador do smartphone.
+
+> ipconfig
+> Endereço IPv4: 192.168.0.106
+
+MANEIRA 2: quando precisar que a conexão seja com segurança, por meio do HTTPS.
+
+> ssh -R 80:192.168.0.106:3000 client@ssh.localhost.run (IPv4:porta >>> front)
+> ssh -R 80:192.168.0.106:5000 api@ssh.localhost.run (IPv4:porta >>> back)
+
+ps.: isso com o json-server e o React ainda rodando na VSCode.
+
+
+

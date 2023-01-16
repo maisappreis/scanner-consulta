@@ -1,0 +1,19 @@
+{
+    "books": [
+        {
+            "id": "9788535212471",
+            "isbn": "9788535212471",
+            "name": "Como dizer tudo em Inglês",
+            "coverUrl": "https://devsamurai-materials.s3.amazonaws.com/samurai-books/clean-code.html",
+            "rating": 4,
+            "promotionalPrice": 39.9,
+            "price": 99.9,
+            "score": 4.9,
+            "scores": [
+                { "name": "Tradução", "value": 3.5 },
+                { "name": "Códigos", "value": 4 },
+                { "name": "Comunidade", "value": 5 }
+            ]
+        }
+    ]
+}

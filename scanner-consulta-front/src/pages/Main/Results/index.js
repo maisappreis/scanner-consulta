@@ -1,17 +1,12 @@
-/* eslint-disable react/no-typos */
-/* eslint-disable no-alert */
-/* eslint-disable no-console */
-/* eslint-disable import/no-unresolved */
-import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import StarRatings from 'react-star-ratings';
-import { MdArrowForward } from 'react-icons/md';
+import React from "react";
+import { useQuery } from "@apollo/react-hooks";
+import gql from "graphql-tag";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import StarRatings from "react-star-ratings";
+import { MdArrowForward } from "react-icons/md";
 
-// eslint-disable-next-line import/extensions
-import { Container, Wrapper, Cover, Info, ActionButons } from './styles.js';
+import { Container, Wrapper, Cover, Info, ActionButons } from "./styles.js";
 
 const GET_BOOK = gql`
   query getBook($isbn: String!) {
@@ -27,24 +22,24 @@ const GET_BOOK = gql`
 `;
 
 export default function Results({ isbn }) {
-  console.log('ISBN: ', isbn);
+  console.log("ISBN: ", isbn);
 
   const { loading, error, data } = useQuery(GET_BOOK, { variables: { isbn } });
 
   if (loading) return <Container>Carregando...</Container>;
 
   if (error) {
-    console.error('Erro ao recuperar os dados do servidor. ', error);
+    console.error("Erro ao recuperar os dados do servidor. ", error);
 
     alert(
-      'Erro ao recuperar os dados do servidor, por favor, verifique a sua conexão.'
+      "Erro ao recuperar os dados do servidor, por favor, verique sua conexão."
     );
 
     return null;
   }
 
   if (data && !data.book.isbn) {
-    alert('Desculpe, este livro não foi encontrado em nossa base de dados.');
+    alert("Desculpe, este livro não foi encontrado em nossa base de dados.");
 
     return null;
   }
@@ -63,23 +58,24 @@ export default function Results({ isbn }) {
                   starRatedColor="#F1C40F"
                   starDimension="18px"
                   starSpacing="0"
-                />{' '}
+                />{" "}
                 (${data.book.rating})
               </div>
               <div className="price">
-                <span className={data.book.promotionalPrime ? 'discount' : ''}>
+                <span className={data.book.promotionalPrice ? "discount" : ""}>
                   R$ {Number(data.book.price).toFixed(2)}
                 </span>
-                {data.book.promotionalPrime && (
+                {data.book.promotionalPrice && (
                   <span>
-                    por R$ {Number(data.book.promotionalPrime).toFixed(2)}
+                    {" "}
+                    por R$ {Number(data.book.promotionalPrice).toFixed(2)}
                   </span>
                 )}
               </div>
             </Info>
             <ActionButons>
               <span className="button">
-                <MdArrowForward size={32} calor="#fff" />
+                <MdArrowForward size={32} color="#fff" />
               </span>
             </ActionButons>
           </Wrapper>
@@ -89,6 +85,6 @@ export default function Results({ isbn }) {
   );
 }
 
-Results.PropTypes = {
-  isbn: PropTypes.string.isRequired,
+Results.propTypes = {
+  isbn: PropTypes.string.isRequired
 };
