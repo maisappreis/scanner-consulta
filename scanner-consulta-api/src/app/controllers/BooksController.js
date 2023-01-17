@@ -1,4 +1,4 @@
-import Book from "../../models/Book";
+import Book from "../models/Book";
 
 class BooksController {
 
@@ -8,7 +8,7 @@ class BooksController {
             const book = await Book.findOne({ isbn });
 
             if(!book) {
-                return res.status(404).json;
+                return res.status(404).json; // Error 404 Not Found
             }
 
             return res.json(book);
@@ -21,7 +21,7 @@ class BooksController {
     async create(req, res) { // POST Method >> create()
         try {
             const book = await Book.create(req.body);
-            return res.status(201).json(book);
+            return res.status(201).json(book); // 201 Created - HTTP
         } catch (err) {
             console.log(err);
             return res.status(500).json({ error: "Internal Server Error "});

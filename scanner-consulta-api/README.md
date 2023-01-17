@@ -16,8 +16,8 @@ API de exemplo do projeto.
 
 ```bash
 $ cp .env.example .env # ajustar os parâmetros
-$ yarn
-$ yarn dev
+$ npm i
+$ npm run dev
 ```
 
 **IMPORTANTE:** Para que um aplicativo PWA acesse os dispositivos locais é necessário que se conecte na API via HTTPS.
