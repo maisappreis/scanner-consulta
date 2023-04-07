@@ -1,47 +1,41 @@
-# Samurai Books API
+# Scanner Books API
 
-API de exemplo do projeto.
+Project API.
 
-💻 Curso de referência: [Dominando o NodeJS](https://devsamurai.com.br)
+💻 Course: [Dominando o NodeJS](https://devsamurai.com.br)
 
-## Desenvolvimento
+## 🌱 On Development
 
-### Requisitos
+### Requirements
 
-- NodeJS 10.x (ou superior)
+- NodeJS 10.x (or upper)
 - MongoDB
 - Docker (opcional)
 
-### Executando local
 
-```bash
-$ cp .env.example .env # ajustar os parâmetros
+```
+$ cp .env.example .env
 $ npm i
 $ npm run dev
 ```
 
-**IMPORTANTE:** Para que um aplicativo PWA acesse os dispositivos locais é necessário que se conecte na API via HTTPS.
+**IMPORTANT:** For a PWA application to access local devices, it must connect to the API via HTTPS.
 
-Você pode fazer isso via [ngrok](https://ngrok.com/) ou com o [mkcert](https://github.com/FiloSottile/mkcert).
+You can do this via [ngrok](https://ngrok.com/) or with [mkcert](https://github.com/FiloSottile/mkcert).
 
-- O [ngrok](https://ngrok.com/) é um pequeno programa que gera um túnel de conexão https para a sua máquina local. Baixando e executando ele vai gerar uma URL de acesso, ajuste no seu aplicativo.
-- O [mkcert](https://github.com/FiloSottile/mkcert) cria um certificado digital para ser utilizado na sua máquina.
+- [ngrok](https://ngrok.com/) is a small program that generates an https connection tunnel to your local machine. Downloading and running it will generate an access URL, adjust it in your application.
+- [mkcert](https://github.com/FiloSottile/mkcert) creates a digital certificate to be used on your machine.
 
-### Executando o Docker via Compose
 
-O arquivo `docker-compose.yml` já contém a imagem do MongoDB e o AdminMongo para uso local.
+### Run Docker by Compose
 
-```bash
+The `docker-compose.yml` file already contains the MongoDB image and AdminMongo for local use.
+
+```
 $ docker-compose up
 ```
 
-- Painel admin do MongoDB: http://localhost:8001
-- URL de conexão MongoDB local: `mongodb://root:secret@localhost:27017/samurai-books?authSource=admin`
+- MongoDB admin panel: http://localhost:8001
+- Local MongoDB connection URL: `mongodb://root:secret@localhost:27017/samurai-books?authSource=admin`
 
-PS: caso não queira utilizar o Docker ou tem dificuldades para instalar o MongoDB uma alternativa viável é o [Atlas](https://www.mongodb.com/cloud/atlas), um banco de dados MongoDB Cloud.
-
-## Comunidade
-
-Se você gostou desse código vai gostar ainda mais do nosso curso [Dominando o NodeJS](https://devsamurai.com.br), clique e conheça.
-
-Se ficou com alguma dúvida participe da nossa comunidade Samurai no Discord acesse https://lp.devsamurai.com.br/discord
+PS: if you don't want to use Docker or have difficulties installing MongoDB, a viable alternative is [Atlas](https://www.mongodb.com/cloud/atlas), a MongoDB Cloud database.
