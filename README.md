@@ -1,7 +1,7 @@
 # ISBN Scanner
 ## A small project of a scanner for checking books by ISBN.
 
-![calculator image](https://user-images.githubusercontent.com/113925909/230682287-c5d3b087-43bf-4333-ab02-05986185e0e9.png)
+![image](https://user-images.githubusercontent.com/113925909/230692222-266d0254-0f2a-463c-88e4-8a76cdba97ce.png)
 
 # Front-end
 
